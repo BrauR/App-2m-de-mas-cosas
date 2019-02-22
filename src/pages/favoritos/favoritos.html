@@ -1,0 +1,25 @@
+<!--
+  Generated template for the FavoritosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>favoritos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor= "let juego of items">
+          <ion-thumbnail item-start>
+            <img *ngIf="juego.ad.hasOwnProperty('thumbnail')"
+                 src= "https://img.segundamano.mx/cover/{{juego.ad.thumbnail.path}}">
+          </ion-thumbnail>
+          <h2 *ngIf = "juego.ad.hasOwnProperty('subject')"> {{juego.ad.subject}} </h2>
+          <h2 *ngIf = "juego.ad.hasOwnProperty('list_price')"> {{juego.ad.list_price.label}} </h2>
+          <button ion-button clear item-end (click)= verJuego(juego)>Ver</button>
+        </ion-item>
+      </ion-list>
+</ion-content>

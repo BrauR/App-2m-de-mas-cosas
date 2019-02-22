@@ -1,0 +1,29 @@
+<!--
+  Generated template for the PrrosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Animales y mascotas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let prro of prros">
+        <ion-card (click)= "verPrro(prro)">
+          <img *ngIf= "prro.ad.hasOwnProperty('thumbnail')"
+           src= "http://img.segundamano.mx/cover/{{prro.ad.thumbnail.path}}">
+           <ion-card-content>
+            <h2 *ngIf = "prro.ad.hasOwnProperty('subject')"> {{prro.ad.subject}} </h2>
+            <p *ngIf = "prro.ad.hasOwnProperty('locations')">{{prro.ad.locations[0].locations[0].label}}, {{prro.ad.locations[0].label}} </p>
+            <h2 *ngIf = "prro.ad.hasOwnProperty('list_price')"> {{prro.ad.list_price.label}} </h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
